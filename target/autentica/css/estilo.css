@@ -69,3 +69,30 @@ footer {
     text-align: center;
     font-size: 12px;
 }
+
+button{
+    display: flex;
+    margin:0 auto;
+    align-items:center;
+}
+
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: rgb(54, 172, 30);
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 26px;
+    margin: 12px 8px;
+    transition-duration: 0.8s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button2{
+    background-color: #21ff00; 
+    color: black; 
+    border: 5px solid #b7c9ab;
+}

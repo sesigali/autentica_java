@@ -9,6 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="cadastro.jsp"><h1>ERRO</h1></a>
+    <a href="index.jsp"><h1>ERRO</h1></a>
 </body>
 </html>

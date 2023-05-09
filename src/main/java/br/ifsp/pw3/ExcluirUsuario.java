@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "excluirUsuario", value = "/excluirUsuario")
 public class ExcluirUsuario extends HttpServlet {
@@ -18,21 +19,13 @@ public class ExcluirUsuario extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Recebe o usuário a ser excluído
-        String usuarioExcluir = req.getParameter("usuario");
 
-        // Percorre a lista de usuários procurando pelo usuário a ser excluído
-        Iterator<Usuario> iterator = usuarios.iterator();
-        while (iterator.hasNext()) {
-            Usuario usuario = iterator.next();
-            if (usuario.getUsuario().equals(usuarioExcluir)) {
-                // Remove o usuário da lista
-                iterator.remove();
-                break;
-            }
-        }
+        HttpSession session = req.getSession();
+
+        // Sessão excluída
+        session.invalidate();
 
         // Redireciona de volta para a lista de usuários
-        resp.sendRedirect("cadastro.jsp");
+        resp.sendRedirect("index.jsp");
     }
 }

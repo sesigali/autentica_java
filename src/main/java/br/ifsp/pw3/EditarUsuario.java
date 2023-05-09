@@ -17,7 +17,8 @@ public class EditarUsuario extends HttpServlet {
     private List<Usuario> usuarios = new ArrayList<>();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+        throws ServletException, IOException {
         // TODO Auto-generated method stub
         // super.doGet(req, resp);
 
@@ -47,26 +48,19 @@ public class EditarUsuario extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+        throws ServletException, IOException {
         // TODO Auto-generated method stub
         // super.doPost(req, resp);
 
         HttpSession session = req.getSession();
-
-        // Recupera o usuário a ser editado da variável de sessão
-        Usuario usuarioEditado = (Usuario) session.getAttribute("usuarioEditado");
-
-        // Recupera as informações atualizadas do usuário
-        String senha = req.getParameter("senha");
-        String nomeCompleto = req.getParameter("nomeCompleto");
-        String cpf = req.getParameter("cpf");
-        String email = req.getParameter("email");
-
-        // Atualiza as informações do usuário
-        usuarioEditado.setSenha(senha);
-        usuarioEditado.setNomeCompleto(nomeCompleto);
-        usuarioEditado.setCpf(cpf);
-        usuarioEditado.setEmail(email);
+        
+        // Atualiza as informações atualizadas do usuário
+        session.setAttribute("usuario", req.getParameter("usuario"));
+        session.setAttribute("senha", req.getParameter("senha"));
+        session.setAttribute("nomeCompleto", req.getParameter("nomeCompleto"));
+        session.setAttribute("cpf", req.getParameter("cpf"));
+        session.setAttribute("email", req.getParameter("email"));
 
         // Redireciona para a página de lista de usuários
         resp.sendRedirect("listaUsuario.jsp");

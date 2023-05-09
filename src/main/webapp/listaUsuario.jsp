@@ -1,6 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="seuPacote.Usuario" %>
+<%@ page import="br.ifsp.pw3.Usuario, java.util.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,19 +20,18 @@
 			<th>E-mail</th>
 			<th>Ações</th>
 		</tr>
-		<c:forEach var="u" items="${usuario}">
-			<tr>
-				<td>${u.usuario}</td>
-				<td>${u.nomeCompleto}</td>
-				<td>${u.cpf}</td>
-				<td>${u.email}</td>
-				<td>
-					<a href="editarUsuario?usuario=${u.usuario}">Editar</a>
-					<a href="excluirUsuario?usuario=${u.usuario}">Excluir</a>
-				</td>
-			</tr>
-		</c:forEach>
+		<tr>
+			<td><%= session.getAttribute("usuario") %></td>
+			<td><%= session.getAttribute("nomeCompleto") %></td>
+			<td><%= session.getAttribute("cpf") %></td>
+			<td><%= session.getAttribute("email") %></td>
+			<td>
+				<a href="editarUsuario.jsp">Editar</a>
+				<a href="excluirUsuario?usuario=<%= session.getAttribute("usuario") %>">Excluir</a>
+			</td>
+		</tr>
 	</table>
+		<a href="index.jsp"><button class="button button2">SAIR</button></a>
     <footer>
         <h2>IFSP São Carlos</h2>
     </footer>  
