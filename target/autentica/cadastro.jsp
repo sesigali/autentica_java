@@ -25,6 +25,7 @@
       
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required><br>
+        <input type="hidden" id="id" name="id" value="-1"><br>
       
         <input type="submit" value="Cadastrar">
       </form>
